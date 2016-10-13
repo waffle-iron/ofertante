@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Workspace</title>
+    <title>Ofertante</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,7 +11,186 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <section class="hero is-primary">
+      <div class="hero-head">
+        <div class="container">
+          <nav class="nav">
+            
+            <div class="nav-left">
+              <a class="nav-item is-brand" href="/">             
+                  <span class="title is-1 white-text">Ofertante</span>
+              </a>
+            </div>
 
-    <%= yield %>
+            <div class="nav-center">
+              <a class="nav-item modal-button" data-target="#send-promotion-modal">
+                <span class="icon is-medium">
+                  <i class="fa fa-share-alt"></i>
+                </span>
+                <span>Enviar Oferta</span>
+              </a>
+            </div> 
+
+            <div class="nav-right nav-menu">
+              <span class="nav-item">
+                <a class="button is-light is-outlined modal-button" data-target="#signin-modal">
+                  <span>Entrar</span>
+                </a>
+                <a class="button is-primary is-inverted modal-button" data-target="#signup-modal">
+                  <span>Cadastrar</span>
+                </a>
+              </span>
+            </div>  
+          </nav>
+        </div>
+      </div>
+    </section>
+    <nav class="nav has-shadow">
+      <div class="container">
+        <div class="nav-center promotions-nav">
+          <a class="nav-item is-tab is-active">
+            <i class="fa fa-shopping-cart"></i>
+            &nbsp;
+            Últimas Ofertas
+          </a>
+          <a class="nav-item is-tab">
+            <i class="fa fa-heart"></i>
+            &nbsp;
+            Mais Curtidas
+          </a>
+          <a class="nav-item is-tab">
+            <i class="fa fa-commenting"></i>
+            &nbsp;
+            Últimos Comentarios
+            </a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="app-main">
+      <div class="container">
+        <%= yield %>      
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Ofertante</strong> by Lucas Duarte
+          </p>
+        </div>
+      </div>
+    </footer>
+    
+
+    <div class="modal" id="send-promotion-modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Enviar Oferta</p>
+          <button class="delete"></button>
+        </header>
+        <section class="modal-card-body">
+          <label class="label">Produto</label>
+          <p class="control">
+            <input class="input" type="text" placeholder="">
+          </p>
+
+          <label class="label">Link do Produto</label>
+          <p class="control">
+            <input class="input" type="text" placeholder="http://...">
+          </p>
+
+          <label class="label">Preço</label>
+          <p class="control">
+            <input class="input" type="text" placeholder="R$...">
+          </p>
+
+          <label class="label">Comentário</label>
+          <p class="control">
+            <textarea class="textarea" placeholder=""></textarea>
+          </p>
+        </section>
+        <footer class="modal-card-foot">
+          <a class="button is-primary">Enviar</a>
+        </footer>
+      </div>
+    </div>
+
+    <div class="modal" id="signup-modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Cadastro</p>
+          <button class="delete"></button>
+        </header>
+        <section class="modal-card-body">
+          <div class="columns">
+            <div class="column">
+              <label class="label">Nome</label>
+              <p class="control">
+                <input class="input" type="text" placeholder="">
+              </p>            
+            </div>
+            <div class="column">
+              <label class="label">Email</label>
+              <p class="control">
+                <input class="input" type="text" placeholder="">
+              </p>               
+            </div>  
+          </div>
+          <div class="columns">
+            <div class="column">
+              <label class="label">Senha</label>
+              <p class="control">
+                <input class="input" type="text" placeholder="">
+              </p>
+            </div>
+            <div class="column">
+              <label class="label">Confirmação de Senha</label>
+              <p class="control">
+                <input class="input" placeholder=""></input>
+              </p>
+            </div>
+          </div>             
+        </section>
+        <footer class="modal-card-foot">
+          <a class="button is-primary">Cadastrar</a>
+        </footer>
+      </div>
+    </div>
+
+    <div class="modal" id="signin-modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Entrar</p>
+          <button class="delete"></button>
+        </header>
+        <section class="modal-card-body">
+          <div class="columns">
+            <div class="column">
+              <label class="label">E-mail</label>
+              <p class="control">
+                <input class="input" type="text" placeholder="">
+              </p>            
+            </div>
+            <div class="column">
+              <label class="label">Senha</label>
+              <p class="control">
+                <input class="input" type="text" placeholder="">
+              </p>               
+            </div>  
+          </div>  
+          <a href="#">Recuperar Senha</a>           
+        </section>
+        <footer class="modal-card-foot">
+          <a class="button is-primary">Entrar</a>
+        </footer>
+      </div>
+    </div>
+
+    
   </body>
 </html>
